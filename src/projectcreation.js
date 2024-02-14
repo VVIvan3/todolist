@@ -13,19 +13,30 @@ const projectStorage = (() => {
 })();
 
 class Project {
-    todos = [];
+    todos = [
+        {
+            title: 'test1',
+            desc: 'test2'
+        }
+    ];
 
     constructor(projectname) {
         this.name = projectname;
     }
 }
 
-
+function checkName(name) {
+    if (name.length == 0 || name === '' || name === ' ') {
+        return 'unnamed';
+    }
+    return name;
+}
 
 function processProjectCreation() {
     const inputField = document.querySelector('#newprj');
-    const newProject = new Project(inputField.value);
+    const newProject = new Project(checkName(inputField.value));
     projectStorage.storeNewProject(newProject);
+    inputField.value = ''
 }
 
 

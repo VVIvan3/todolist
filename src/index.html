@@ -13,8 +13,8 @@
         </div>
         <div class="projectholder">
             <ul class="projectlist">
-                <li>Example 1</li>
-                <li>Example 2</li>
+                <li class="project">Example 1</li>
+                <li class="project">Example 2</li>
             </ul>
         </div>
     </div>
@@ -34,7 +34,17 @@
     </div>
     <dialog class="new-project">
         <label for="newprj">Enter project name:</label>
-        <input type="text" maxlength="12" id="newprj">
+        <input type="text" minlength="1" maxlength="12" id="newprj">
         <button class="create">Create</button>
+    </dialog>
+    <dialog class="new-todo">
+        <form class="todoform">
+            <label for="todotitle">Enter to-do title:</label>
+            <input type="text" minlength="1" maxlength="20" id="todotitle">
+            <label for="tododesc">Enter description</label>
+            <textarea id="tododesc"></textarea>
+            <!-- <input type="text" minlength="1" maxlength="12" id="tododesc"> -->
+            <button class="todocreate">Create</button>
+        </form>
     </dialog>
 </html>
