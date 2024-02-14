@@ -1,5 +1,6 @@
 import './style.css';
-import processProjectCreation from './projectcreation';
+import { processProjectCreation, projectStorage } from './projectcreation';
+
 
 const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
