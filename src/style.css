@@ -44,3 +44,7 @@ body {
     width: 250px;
     height: 350px;
 }
+
+dialog {
+    margin: auto;
+}
