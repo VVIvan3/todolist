@@ -116,7 +116,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconst setUpButtons = (() => {\n    const addProjectBtn = document.querySelector('.addproject');\n    const creationDialog = document.querySelector('.new-project');\n    addProjectBtn.addEventListener('click', () => {\n        creationDialog.showModal();\n    });\n})();\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _projectcreation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectcreation */ \"./src/projectcreation.js\");\n\n\n\nconst setUpButtons = (() => {\n    const addProjectBtn = document.querySelector('.addproject');\n    const creationDialog = document.querySelector('.new-project');\n    const createBtn = document.querySelector('.create');\n\n    addProjectBtn.addEventListener('click', () => {\n        creationDialog.showModal();\n    });\n\n    createBtn.addEventListener('click', () => {\n        (0,_projectcreation__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n        creationDialog.close();\n    })\n})();\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/projectcreation.js":
+/*!********************************!*\
+  !*** ./src/projectcreation.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ processProjectCreation)\n/* harmony export */ });\nfunction processProjectCreation() {\n    const inputField = document.querySelector('#newprj');\n    const inputValue = inputField.value;\n    //ADD\n}\n\n//# sourceURL=webpack://todolist/./src/projectcreation.js?");
 
 /***/ })
 
