@@ -6,7 +6,7 @@ const projectStorage = (() => {
     }
 
     const getStoredProjects = function() {
-        return storedProjects
+        return storedProjects;
     }
 
     return { storeNewProject, getStoredProjects }
@@ -25,8 +25,7 @@ class Project {
 function processProjectCreation() {
     const inputField = document.querySelector('#newprj');
     const newProject = new Project(inputField.value);
-    projectStorage.storeNewProject(newProject)
-    console.log(projectStorage.getStoredProjects());
+    projectStorage.storeNewProject(newProject);
 }
 
 
