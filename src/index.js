@@ -5,6 +5,7 @@ import firstLoad from './firstload';
 import validate from './formvalidation';
 import { selection, getCurrentSelectionId } from './selection';
 import { createTodoObj } from './createtodo';
+import { editCurrentTodo } from './todoediting';
 
 const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
@@ -73,6 +74,8 @@ class projectDisplay {
             const editBtn = document.createElement('button');
             editBtn.classList.add('edittodo');
             editBtn.textContent = 'Edit';
+            editBtn.id = `id-${i}`;
+            editBtn.addEventListener('click', (event) => mainFunctionality.editTodoDialog(event.target.id.split('-')[1]));
             const todoDesc = document.createElement('p');
             todoDesc.classList.add('todo-desc');
             todoDesc.textContent = todo.desc;
@@ -80,7 +83,6 @@ class projectDisplay {
             todoCard.append(todoTitle, editBtn, todoDesc);
             displayBoard.appendChild(todoCard);
         }
-        
     }
 }
 
@@ -92,6 +94,11 @@ class mainFunctionality {
         dataStorage.storeProject(selectedProject, currentId);
         projectDisplay.renderTodos();
     }
+    static editTodoDialog(id) {
+        const editDialog = document.querySelector('.edit-todo');
+        editDialog.showModal();
+        editCurrentTodo(id);
+    }
 }
 
 const initPage = (() => {
@@ -102,6 +109,8 @@ const initPage = (() => {
     selection('id-1');
     projectDisplay.renderTodos();
 })();
+
+export { projectDisplay }
 // TO-DO
 // RERENDER SELECTION WHEN NEW OBJECT IS CREATED !!!!!
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
