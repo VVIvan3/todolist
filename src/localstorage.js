@@ -1,6 +1,8 @@
 class dataStorage {
-    static storeProject(project) {
-        const id = localStorage.length + 1
+    static generateId() {
+        return localStorage.length + 1;
+    }
+    static storeProject(project, id=this.generateId()) {
         localStorage.setItem(id, JSON.stringify(project));
     }
     static retriveData(id) {
