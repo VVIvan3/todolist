@@ -21,7 +21,7 @@ const setUpButtons = (() => {
     createBtn.addEventListener('click', () => {
         processProjectCreation();
         creationDialog.close();
-        mainFunctionality.renderProjects();
+        projectDisplay.renderScreen();
     });
 
     todoDialogBtn.addEventListener('click', () => {
@@ -57,9 +57,6 @@ class projectDisplay {
 }
 
 class mainFunctionality {
-    static renderProjects() {
-        projectDisplay.renderScreen();
-    }
     static addNewTodo(object) {
         const selectedProject = dataStorage.retriveData(getCurrentSelectionId());
     }
@@ -69,10 +66,11 @@ const initPage = (() => {
     if (localStorage.length == 0) {
         firstLoad();
     }
-    mainFunctionality.renderProjects();
+    projectDisplay.renderScreen();
     selection('id-1');
 })();
 // TO-DO
+// RERENDER SELECTION WHEN NEW OBJECT IS CREATED !!!!!
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
 // FUNCTIONALITY FOR SELECTION
 // FUNCTIONALITY FOR RERENDERING TODO-CARDS
