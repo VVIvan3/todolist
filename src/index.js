@@ -54,6 +54,28 @@ class projectDisplay {
             projectList.appendChild(newProject);
         }
     }
+    static renderTodos() {
+        const currentId = getCurrentSelectionId();
+        const selectedProjectTodos = dataStorage.retriveData(currentId).todos;
+        const displayBoard = document.querySelector('.display');
+        displayBoard.innerHTML = '';
+        selectedProjectTodos.forEach((todo) => {
+            const todoCard = document.createElement('div');
+            todoCard.classList.add('todo-card');
+            const todoTitle = document.createElement('h3');
+            todoTitle.classList.add('todo-title');
+            todoTitle.textContent = todo.title;
+            const todoDesc = document.createElement('p');
+            todoDesc.classList.add('todo-desc');
+            todoDesc.textContent = todo.desc;
+
+
+
+            todoCard.append(todoTitle, todoDesc);
+            displayBoard.appendChild(todoCard);
+        });
+        
+    }
 }
 
 class mainFunctionality {
@@ -62,6 +84,7 @@ class mainFunctionality {
         const selectedProject = dataStorage.retriveData(currentId);
         selectedProject.todos.push(object);
         dataStorage.storeProject(selectedProject, currentId);
+        projectDisplay.renderTodos();
     }
 }
 
@@ -71,6 +94,7 @@ const initPage = (() => {
     }
     projectDisplay.renderScreen();
     selection('id-1');
+    projectDisplay.renderTodos();
 })();
 // TO-DO
 // RERENDER SELECTION WHEN NEW OBJECT IS CREATED !!!!!
