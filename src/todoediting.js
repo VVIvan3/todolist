@@ -20,7 +20,6 @@ function editCurrentTodo(id) {
         dataStorage.storeProject(overwrite, getCurrentSelectionId());
         editDialog.close();
         projectDisplay.renderTodos();
-        // editBtn.removeEventListener('click', makeChanges);
         cleanEventListeners();
     });
 
@@ -29,7 +28,6 @@ function editCurrentTodo(id) {
         const newTodoArray = dataStorage.retriveData(getCurrentSelectionId());
         newTodoArray.todos.splice(id, 1);
         dataStorage.storeProject(newTodoArray, getCurrentSelectionId());
-        // delBtn.removeEventListener('click', deleteTodo);
         editDialog.close();
         projectDisplay.renderTodos();
         cleanEventListeners()
