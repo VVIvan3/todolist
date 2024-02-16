@@ -1,5 +1,5 @@
 import './style.css';
-import { processProjectCreation, projectStorage } from './projectcreation';
+import { processProjectCreation } from './projectcreation';
 import { dataStorage } from './localstorage';
 
 const setUpButtons = (() => {
@@ -22,7 +22,7 @@ class projectDisplay {
     static renderScreen() {
         const projectList = document.querySelector('.projectlist');
         projectList.innerHTML = '';
-        for (let i = 0; i < projectStorage.getStoredProjects().length; i++) {
+        for (let i = 1; i <= localStorage.length; i++) {
             const newProject = document.createElement('li');
             const retrivedDataName = dataStorage.retriveData(i).name;
             newProject.textContent = retrivedDataName;
@@ -34,10 +34,17 @@ class projectDisplay {
 
 class mainFunctionality {
     static renderProjects () {
-        dataStorage.storageProjects();
         projectDisplay.renderScreen();
     }
 }
+
+const initPage = (() => {
+    if (localStorage.length == 0) {
+        //
+    } else {
+        mainFunctionality.renderProjects();
+    }
+})();
 // TO-DO
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
 // FUNCTIONALITY FOR SELECTION

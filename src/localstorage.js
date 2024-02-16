@@ -1,11 +1,7 @@
-import { projectStorage } from "./projectcreation";
-
 class dataStorage {
-    static storageProjects() {
-        const localProjects = projectStorage.getStoredProjects();
-        for (let i = 0; i < localProjects.length; i++) {
-            localStorage.setItem(i, JSON.stringify(localProjects[i]));
-        }
+    static storeProject(project) {
+        const id = localStorage.length + 1
+        localStorage.setItem(id, JSON.stringify(project));
     }
     static retriveData(id) {
         return JSON.parse(localStorage.getItem(id));

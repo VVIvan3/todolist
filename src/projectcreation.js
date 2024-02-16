@@ -1,16 +1,4 @@
-const projectStorage = (() => {
-    const storedProjects = [];
-
-    const storeNewProject = function(value) {
-        storedProjects.push(value);
-    }
-
-    const getStoredProjects = function() {
-        return storedProjects;
-    }
-
-    return { storeNewProject, getStoredProjects }
-})();
+import { dataStorage } from "./localstorage";
 
 class Project {
     todos = [
@@ -35,9 +23,9 @@ function checkName(name) {
 function processProjectCreation() {
     const inputField = document.querySelector('#newprj');
     const newProject = new Project(checkName(inputField.value));
-    projectStorage.storeNewProject(newProject);
-    inputField.value = ''
+    dataStorage.storeProject(newProject);
+    inputField.value = '';
 }
 
 
-export { processProjectCreation, projectStorage }
+export { processProjectCreation, }
