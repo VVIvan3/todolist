@@ -53,3 +53,7 @@ dialog {
     position: absolute;
     left: 50%;
 }
+
+.selected {
+    text-decoration: underline;
+}

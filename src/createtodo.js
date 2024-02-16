@@ -13,3 +13,5 @@ function createTodo() {
 
     const newTodo = new Todo(inputTitle.value, inputDesc.value);
 }
+
+export { createTodo }

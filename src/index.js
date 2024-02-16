@@ -3,6 +3,7 @@ import { processProjectCreation } from './projectcreation';
 import { dataStorage } from './localstorage';
 import firstLoad from './firstload';
 import validate from './formvalidation';
+import { selection } from './selection';
 
 const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
@@ -45,6 +46,8 @@ class projectDisplay {
             const retrivedDataName = dataStorage.retriveData(i).name;
             newProject.textContent = retrivedDataName;
             newProject.classList.add('project');
+            newProject.setAttribute('id', `id-${i}`);
+            newProject.addEventListener('click', (event) => selection(event.target.id));
             projectList.appendChild(newProject);
         }
     }
