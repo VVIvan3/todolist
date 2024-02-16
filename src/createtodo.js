@@ -7,11 +7,11 @@ class Todo {
     }
 }
 
-function createTodo() {
+function createTodoObj() {
     const inputTitle = document.querySelector('#todotitle');
     const inputDesc = document.querySelector('#tododesc');
 
-    const newTodo = new Todo(inputTitle.value, inputDesc.value);
+    return new Todo(inputTitle.value, inputDesc.value);
 }
 
-export { createTodo }
+export { createTodoObj }

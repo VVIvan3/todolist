@@ -9,7 +9,7 @@ function selection(id) {
 
 function getCurrentSelectionId() {
     const selected = document.querySelector('.selected');
-    return selected.id;
+    return selected.id.split('-')[1];
 }
 
 export { selection, getCurrentSelectionId }

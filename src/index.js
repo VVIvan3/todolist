@@ -3,7 +3,8 @@ import { processProjectCreation } from './projectcreation';
 import { dataStorage } from './localstorage';
 import firstLoad from './firstload';
 import validate from './formvalidation';
-import { selection } from './selection';
+import { selection, getCurrentSelectionId } from './selection';
+import { createTodoObj } from './createtodo';
 
 const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
@@ -29,7 +30,9 @@ const setUpButtons = (() => {
 
     createTodo.addEventListener('click', () => {
         if (validate()) {
+            const newTodo = createTodoObj();
             todoDialog.close();
+            mainFunctionality.addNewTodo(newTodo);
         } else {
             alert('Please, fill every blanks')
         }
@@ -54,8 +57,11 @@ class projectDisplay {
 }
 
 class mainFunctionality {
-    static renderProjects () {
+    static renderProjects() {
         projectDisplay.renderScreen();
+    }
+    static addNewTodo(object) {
+        const selectedProject = dataStorage.retriveData(getCurrentSelectionId());
     }
 }
 
@@ -64,6 +70,7 @@ const initPage = (() => {
         firstLoad();
     }
     mainFunctionality.renderProjects();
+    selection('id-1');
 })();
 // TO-DO
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
