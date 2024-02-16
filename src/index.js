@@ -2,6 +2,7 @@ import './style.css';
 import { processProjectCreation } from './projectcreation';
 import { dataStorage } from './localstorage';
 import firstLoad from './firstload';
+import validate from './formvalidation';
 
 const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
@@ -26,7 +27,11 @@ const setUpButtons = (() => {
     });
 
     createTodo.addEventListener('click', () => {
-        todoDialog.close();
+        if (validate()) {
+            todoDialog.close();
+        } else {
+            alert('Please, fill every blanks')
+        }
     });
 
 })();
