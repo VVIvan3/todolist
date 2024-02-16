@@ -1,6 +1,7 @@
 import './style.css';
 import { processProjectCreation } from './projectcreation';
 import { dataStorage } from './localstorage';
+import firstLoad from './firstload';
 
 const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
@@ -40,10 +41,9 @@ class mainFunctionality {
 
 const initPage = (() => {
     if (localStorage.length == 0) {
-        //
-    } else {
-        mainFunctionality.renderProjects();
+        firstLoad();
     }
+    mainFunctionality.renderProjects();
 })();
 // TO-DO
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)

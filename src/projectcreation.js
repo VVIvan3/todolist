@@ -28,4 +28,4 @@ function processProjectCreation() {
 }
 
 
-export { processProjectCreation, }
+export { processProjectCreation, Project }
