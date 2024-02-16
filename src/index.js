@@ -58,7 +58,10 @@ class projectDisplay {
 
 class mainFunctionality {
     static addNewTodo(object) {
-        const selectedProject = dataStorage.retriveData(getCurrentSelectionId());
+        const currentId = getCurrentSelectionId();
+        const selectedProject = dataStorage.retriveData(currentId);
+        selectedProject.todos.push(object);
+        dataStorage.storeProject(selectedProject, currentId);
     }
 }
 

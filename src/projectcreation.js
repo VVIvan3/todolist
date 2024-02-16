@@ -1,12 +1,7 @@
 import { dataStorage } from "./localstorage";
 
 class Project {
-    todos = [
-        {
-            title: 'test1',
-            desc: 'test2'
-        }
-    ];
+    todos = [];
 
     constructor(projectname) {
         this.name = projectname;
