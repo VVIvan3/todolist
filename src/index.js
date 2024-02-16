@@ -7,6 +7,9 @@ const setUpButtons = (() => {
     const addProjectBtn = document.querySelector('.addproject');
     const creationDialog = document.querySelector('.new-project');
     const createBtn = document.querySelector('.create');
+    const todoDialogBtn = document.querySelector('.todobtn');
+    const createTodo = document.querySelector('.todocreate');
+    const todoDialog = document.querySelector('.new-todo');
 
     addProjectBtn.addEventListener('click', () => {
         creationDialog.showModal();
@@ -17,6 +20,15 @@ const setUpButtons = (() => {
         creationDialog.close();
         mainFunctionality.renderProjects();
     });
+
+    todoDialogBtn.addEventListener('click', () => {
+        todoDialog.showModal();
+    });
+
+    createTodo.addEventListener('click', () => {
+        todoDialog.close();
+    });
+
 })();
 
 class projectDisplay {

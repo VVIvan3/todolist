@@ -40,11 +40,12 @@
     <dialog class="new-todo">
         <form class="todoform">
             <label for="todotitle">Enter to-do title:</label>
-            <input type="text" minlength="1" maxlength="20" id="todotitle">
+            <input type="text" minlength="1" maxlength="20" id="todotitle" name="todotitle" required>
             <label for="tododesc">Enter description</label>
-            <textarea id="tododesc"></textarea>
+            <textarea id="tododesc" name="tododesc" required></textarea>
             <!-- <input type="text" minlength="1" maxlength="12" id="tododesc"> -->
             <button class="todocreate">Create</button>
         </form>
     </dialog>
+    <button class="todobtn">Create new TO-DO</button>
 </html>

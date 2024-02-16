@@ -48,3 +48,8 @@ body {
 dialog {
     margin: auto;
 }
+
+.todobtn {
+    position: absolute;
+    left: 50%;
+}
