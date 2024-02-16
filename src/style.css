@@ -40,7 +40,7 @@ body {
 }
 
 .todo-card {
-    background-color: black;
+    background-color: gray;
     width: 250px;
     height: 350px;
 }

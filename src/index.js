@@ -50,7 +50,10 @@ class projectDisplay {
             newProject.textContent = retrivedDataName;
             newProject.classList.add('project');
             newProject.setAttribute('id', `id-${i}`);
-            newProject.addEventListener('click', (event) => selection(event.target.id));
+            newProject.addEventListener('click', (event) => {
+                selection(event.target.id);
+                projectDisplay.renderTodos();
+            });
             projectList.appendChild(newProject);
         }
     }
