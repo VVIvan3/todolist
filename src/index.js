@@ -86,8 +86,10 @@ class projectDisplay {
             todoDesc.textContent = todo.desc;
 
             const todoDue = document.createElement('p');
-            todoDesc.textContent = `Due time: ${todo.due}`;
+            todoDue.textContent = `Due time: ${todo.due}`;
             
+            todoCard.classList.add(todo.priority);
+
             todoCard.append(todoTitle, editBtn, todoDesc, todoDue);
             displayBoard.appendChild(todoCard);
         }
