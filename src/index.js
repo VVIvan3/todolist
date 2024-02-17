@@ -14,10 +14,15 @@ const setUpButtons = (() => {
     const todoDialogBtn = document.querySelector('.todobtn');
     const createTodo = document.querySelector('.todocreate');
     const todoDialog = document.querySelector('.new-todo');
+    const delPrjBtn = document.querySelector('.delprj');
 
     addProjectBtn.addEventListener('click', () => {
         creationDialog.showModal();
     });
+
+    delPrjBtn.addEventListener('click', () => {
+        mainFunctionality.deleteCurrentProject();
+    })
 
     createBtn.addEventListener('click', () => {
         processProjectCreation();
@@ -99,6 +104,27 @@ class mainFunctionality {
         editDialog.showModal();
         editCurrentTodo(id);
     }
+    static deleteCurrentProject() {
+        const currentId = getCurrentSelectionId();
+        if (localStorage.length <= 1) {
+            alert('Cannot remove last project');
+        } else {
+            for (let i = 0; i <= localStorage.length; i++) {
+                if (i > currentId) {
+                    const replacementProject = dataStorage.retriveData(i);
+                    const prevPrj = i - 1;
+                    console.log(i);
+                    console.log(prevPrj);
+
+                    dataStorage.storeProject(replacementProject, prevPrj);
+                }
+            }
+            localStorage.removeItem(localStorage.length);
+            projectDisplay.renderScreen();
+            selection('id-1');
+            projectDisplay.renderTodos();
+        }
+    }
 }
 
 const initPage = (() => {
@@ -112,8 +138,5 @@ const initPage = (() => {
 
 export { projectDisplay }
 // TO-DO
-// RERENDER SELECTION WHEN NEW OBJECT IS CREATED !!!!!
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
-// FUNCTIONALITY FOR SELECTION
-// FUNCTIONALITY FOR RERENDERING TODO-CARDS
-// POSSIBILITY TO DELETE PROJECT AND TO-DOS
+// POSSIBILITY TO DELETE PROJECT
