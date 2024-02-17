@@ -84,8 +84,11 @@ class projectDisplay {
             const todoDesc = document.createElement('p');
             todoDesc.classList.add('todo-desc');
             todoDesc.textContent = todo.desc;
+
+            const todoDue = document.createElement('p');
+            todoDesc.textContent = `Due time: ${todo.due}`;
             
-            todoCard.append(todoTitle, editBtn, todoDesc);
+            todoCard.append(todoTitle, editBtn, todoDesc, todoDue);
             displayBoard.appendChild(todoCard);
         }
     }
@@ -139,4 +142,3 @@ const initPage = (() => {
 export { projectDisplay }
 // TO-DO
 // FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
-// POSSIBILITY TO DELETE PROJECT

@@ -7,12 +7,14 @@ function editCurrentTodo(id) {
     const currentProjectTodo = dataStorage.retriveData(getCurrentSelectionId()).todos[id];
     const editTitle = document.querySelector('#edit-todotitle');
     const editDesc = document.querySelector('#edit-tododesc');
+    const editDue = document.querySelector('#edit-tododue');
     editTitle.value = currentProjectTodo.title;
     editDesc.value = currentProjectTodo.desc;
     const editBtn = document.querySelector('.edit-todoedit');
     editBtn.addEventListener('click', function makeChanges() {
         currentProjectTodo.title = editTitle.value;
         currentProjectTodo.desc = editDesc.value;
+        currentProjectTodo.due = editDue.value;
 
 
         const overwrite = dataStorage.retriveData(getCurrentSelectionId())

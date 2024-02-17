@@ -31,7 +31,8 @@
             <input type="text" maxlength="20" id="todotitle" name="todotitle" class="todoinput">
             <label for="tododesc">Enter description</label>
             <textarea id="tododesc" name="tododesc" class="todoinput"></textarea>
-            <!-- <input type="text" minlength="1" maxlength="12" id="tododesc"> -->
+            <label for="tododue"></label>
+            <input type="date" class="tododue" name="tododue" id="tododue">
             <button class="todocreate" type="button">Create</button>
         </form>
     </dialog>
@@ -43,7 +44,8 @@
             <input type="text" maxlength="20" id="edit-todotitle" name="edit-todotitle" class="edit-todoinput">
             <label for="edit-tododesc">Enter description</label>
             <textarea id="edit-tododesc" name="edit-tododesc" class="edit-todoinput"></textarea>
-            <!--  -->
+            <label for="edit-tododue"></label>
+            <input type="date" class="edit-tododue" name="edit-tododue" id="edit-tododue">
             <button class="edit-todoedit editbtn" type="button">Edit</button>
             <button class="edit-tododel editbtn" type="button">Delete</button>
         </form>

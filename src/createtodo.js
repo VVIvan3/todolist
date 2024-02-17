@@ -1,8 +1,8 @@
 class Todo {
-    constructor(title, desc) {
+    constructor(title, desc, due) {
         this.title = title;
         this.desc = desc;
-        this.due = 'blank for now';
+        this.due = due;
         this.priority = 'blank for now';
     }
 }
@@ -10,8 +10,9 @@ class Todo {
 function createTodoObj() {
     const inputTitle = document.querySelector('#todotitle');
     const inputDesc = document.querySelector('#tododesc');
+    const inputDue = document.querySelector('#tododue');
 
-    return new Todo(inputTitle.value, inputDesc.value);
+    return new Todo(inputTitle.value, inputDesc.value, inputDue.value);
 }
 
 export { createTodoObj }
