@@ -143,5 +143,3 @@ const initPage = (() => {
 })();
 
 export { projectDisplay }
-// TO-DO
-// FUNCTIONALITY FOR TO-DO CREATION (PLUS THEIR STATUS, DATE, AND PRIORITY)
